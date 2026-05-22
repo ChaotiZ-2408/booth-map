@@ -1,0 +1,218 @@
+﻿
+{
+  "_comment": "BoothCard 範例資料。此檔案示範所有 highlight 顏色、enabled 狀態、多作者、空陣列、disabled 商品等情境。tags 僅能使用：集章 / 新品 / 夜市 / 特典 / 優先。",
+
+  "version": 2,
+
+  "cards": [
+    {
+      "id": 1,
+      "boothId": "M01",
+      "enabled": true,
+      "priority": 1,
+
+      "authorNames": ["作者A"],
+
+      "purchaseItems": [
+        {
+          "authorName": "作者A",
+          "itemName": "示例商品",
+          "price": 100,
+          "enabled": true
+        }
+      ],
+
+      "exchangeGifts": [
+        {
+          "authorName": "作者A",
+          "itemName": "示例認親禮",
+          "enabled": true
+        }
+      ],
+
+      "tags": ["集章", "新品", "特典"],
+      "highlight": "default",
+
+      "note": "這是最基本的範例資料"
+    },
+
+    {
+      "id": 2,
+      "boothId": "M02",
+      "enabled": true,
+      "priority": 2,
+
+      "authorNames": ["作者B", "作者C"],
+
+      "purchaseItems": [
+        {
+          "authorName": "作者A",
+          "itemName": "壓克力吊飾",
+          "price": 200,
+          "enabled": false
+        },
+        {
+          "authorName": "作者B",
+          "itemName": "貼紙包",
+          "price": 150,
+          "enabled": true
+        }
+      ],
+
+      "exchangeGifts": [
+        {
+          "authorName": "作者A",
+          "itemName": "認親卡",
+          "enabled": true
+        },
+        {
+          "authorName": "作者B",
+          "itemName": "糖果",
+          "enabled": false
+        }
+      ],
+
+      "tags": ["夜市", "優先"],
+      "highlight": "red",
+
+      "note": "包含 disabled 商品與 disabled 認親禮"
+    },
+
+    {
+      "id": 3,
+      "boothId": "A01",
+      "enabled": true,
+      "priority": 3,
+
+      "authorNames": ["作者1"],
+
+      "purchaseItems": [
+        {
+          "authorName": "作者1",
+          "itemName": "新刊",
+          "price": 300,
+          "enabled": true
+        },
+        {
+          "authorName": "作者1",
+          "itemName": "明信片",
+          "price": 50,
+          "enabled": true
+        }
+      ],
+
+      "exchangeGifts": [],
+
+      "tags": ["新品"],
+      "highlight": "amber",
+
+      "note": ""
+    },
+
+    {
+      "id": 4,
+      "boothId": "A02",
+      "enabled": true,
+      "priority": 1,
+
+      "authorNames": ["作者2"],
+
+      "purchaseItems": [],
+
+      "exchangeGifts": [
+        {
+          "authorName": "作者2",
+          "itemName": "小卡",
+          "enabled": true
+        }
+      ],
+
+      "tags": ["集章"],
+      "highlight": "emerald",
+
+      "note": "只有認親禮，沒有販售商品"
+    },
+
+    {
+      "id": 5,
+      "boothId": "B01",
+      "enabled": false,
+      "priority": 99,
+
+      "authorNames": ["作者ㄅ"],
+
+      "purchaseItems": [
+        {
+          "authorName": "作者ㄅ",
+          "itemName": "既刊",
+          "price": 250,
+          "enabled": false
+        }
+      ],
+
+      "exchangeGifts": [],
+
+      "tags": [],
+      "highlight": "disable",
+
+      "note": "示範 disabled 攤位"
+    },
+
+    {
+      "id": 6,
+      "boothId": "C01",
+      "enabled": true,
+      "priority": 5,
+
+      "authorNames": ["作者ㄆ"],
+
+      "purchaseItems": [
+        {
+          "authorName": "作者ㄆ",
+          "itemName": "海報",
+          "price": 120,
+          "enabled": true
+        }
+      ],
+
+      "exchangeGifts": [
+        {
+          "authorName": "作者ㄆ",
+          "itemName": "無料貼紙",
+          "enabled": true
+        }
+      ],
+
+      "tags": ["特典", "新品"],
+      "highlight": "sky",
+
+      "note": "示範 sky 樣式"
+    },
+
+    {
+      "id": 7,
+      "boothId": "D01",
+      "enabled": true,
+      "priority": 1,
+
+      "authorNames": ["想不到ㄌ"],
+
+      "purchaseItems": [
+        {
+          "authorName": "想不到ㄌ",
+          "itemName": "收藏卡冊",
+          "price": 450,
+          "enabled": true
+        }
+      ],
+
+      "exchangeGifts": [],
+
+      "tags": ["優先"],
+      "highlight": "violet",
+
+      "note": "示範 violet 樣式"
+    }
+  ]
+}
+
