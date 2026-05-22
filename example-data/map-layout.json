@@ -1,0 +1,76 @@
+﻿{
+  "version": 2,
+  "layout": {
+    "unitPx": {
+      "w": 40,
+      "h": 30
+    },
+    "mapSize": {
+      "minX": -3,
+      "maxX": 60,
+      "minY": -10,
+      "maxY": 50
+    },
+    "defaultBoothSize": {
+      "w": 1,
+      "h": 1
+    },
+    "highlightColor": "#3b82f6",
+    "zoom": {
+      "min": 0.6,
+      "max": 2.4,
+      "wheelStep": 0.1
+    },
+    "boothStyle": {
+      "disable": {
+        "borderWidth": 2,
+        "fillColor": "#f8fafc",
+        "borderColor": "#d3dce8",
+        "fontSize": 12,
+        "textColor": "#94a3b8"
+      },
+      "default": {
+        "borderWidth": 2,
+        "fillColor": "#eff6ff",
+        "borderColor": "#3b82f6",
+        "fontSize": 12,
+        "textColor": "#3b82f6"
+      },
+      "red": {
+        "borderWidth": 2,
+        "fillColor": "#fff1f2",
+        "borderColor": "#f43f5e",
+        "fontSize": 12,
+        "textColor": "#f43f5e"
+      },
+      "amber": {
+        "borderWidth": 2,
+        "fillColor": "#fffbeb",
+        "borderColor": "#f59e0b",
+        "fontSize": 12,
+        "textColor": "#f59e0b"
+      },
+      "emerald": {
+        "borderWidth": 2,
+        "fillColor": "#ecfdf5",
+        "borderColor": "#10b981",
+        "fontSize": 12,
+        "textColor": "#10b981"
+      },
+      "sky": {
+        "borderWidth": 2,
+        "fillColor": "#f0f9ff",
+        "borderColor": "#0ea5e9",
+        "fontSize": 12,
+        "textColor": "#0ea5e9"
+      },
+      "violet": {
+        "borderWidth": 2,
+        "fillColor": "#f5f3ff",
+        "borderColor": "#8b5cf6",
+        "fontSize": 12,
+        "textColor": "#8b5cf6"
+      }
+    }
+  }
+}

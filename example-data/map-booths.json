@@ -1,0 +1,460 @@
+﻿{
+  "version": 2,
+  "ranges": [
+    {
+      "from": "A01",
+      "to": "A20",
+      "axis": "y",
+      "start": { "x": 0, "y": 0 },
+      "facing": "right"
+    },
+    {
+      "from": "A21",
+      "to": "A34",
+      "axis": "y",
+      "start": { "x": 0, "y": 22 },
+      "facing": "right"
+    },
+    {
+      "from": "A68",
+      "to": "A49",
+      "axis": "y",
+      "start": { "x": 1, "y": 0 },
+      "facing": "left"
+    },
+    {
+      "from": "A48",
+      "to": "A35",
+      "axis": "y",
+      "start": { "x": 1, "y": 22 },
+      "facing": "left"
+    },
+
+    {
+      "from": "B01",
+      "to": "B20",
+      "axis": "y",
+      "start": { "x": 4, "y": 0 },
+      "facing": "right"
+    },
+    {
+      "from": "B21",
+      "to": "B34",
+      "axis": "y",
+      "start": { "x": 4, "y": 22 },
+      "facing": "right"
+    },
+    {
+      "from": "B68",
+      "to": "B49",
+      "axis": "y",
+      "start": { "x": 5, "y": 0 },
+      "facing": "left"
+    },
+    {
+      "from": "B48",
+      "to": "B35",
+      "axis": "y",
+      "start": { "x": 5, "y": 22 },
+      "facing": "left"
+    },
+
+    {
+      "from": "C01",
+      "to": "C20",
+      "axis": "y",
+      "start": { "x": 8, "y": 0 },
+      "facing": "right"
+    },
+    {
+      "from": "C21",
+      "to": "C34",
+      "axis": "y",
+      "start": { "x": 8, "y": 22 },
+      "facing": "right"
+    },
+    {
+      "from": "C68",
+      "to": "C49",
+      "axis": "y",
+      "start": { "x": 9, "y": 0 },
+      "facing": "left"
+    },
+    {
+      "from": "C48",
+      "to": "C35",
+      "axis": "y",
+      "start": { "x": 9, "y": 22 },
+      "facing": "left"
+    },
+
+    {
+      "from": "D01",
+      "to": "D20",
+      "axis": "y",
+      "start": { "x": 12, "y": 0 },
+      "facing": "right"
+    },
+    {
+      "from": "D21",
+      "to": "D34",
+      "axis": "y",
+      "start": { "x": 12, "y": 22 },
+      "facing": "right"
+    },
+    {
+      "from": "D68",
+      "to": "D49",
+      "axis": "y",
+      "start": { "x": 13, "y": 0 },
+      "facing": "left"
+    },
+    {
+      "from": "D48",
+      "to": "D35",
+      "axis": "y",
+      "start": { "x": 13, "y": 22 },
+      "facing": "left"
+    },
+
+    {
+      "from": "E01",
+      "to": "E20",
+      "axis": "y",
+      "start": { "x": 16, "y": 0 },
+      "facing": "right"
+    },
+    {
+      "from": "E21",
+      "to": "E44",
+      "axis": "y",
+      "start": { "x": 16, "y": 22 },
+      "facing": "right"
+    },
+    {
+      "from": "E88",
+      "to": "E69",
+      "axis": "y",
+      "start": { "x": 17, "y": 0 },
+      "facing": "left"
+    },
+    {
+      "from": "E68",
+      "to": "E45",
+      "axis": "y",
+      "start": { "x": 17, "y": 22 },
+      "facing": "left"
+    },
+
+    {
+      "from": "F01",
+      "to": "F20",
+      "axis": "y",
+      "start": { "x": 20, "y": 0 },
+      "facing": "right"
+    },
+    {
+      "from": "F21",
+      "to": "F44",
+      "axis": "y",
+      "start": { "x": 20, "y": 22 },
+      "facing": "right"
+    },
+    {
+      "from": "F88",
+      "to": "F69",
+      "axis": "y",
+      "start": { "x": 21, "y": 0 },
+      "facing": "left"
+    },
+    {
+      "from": "F68",
+      "to": "F45",
+      "axis": "y",
+      "start": { "x": 21, "y": 22 },
+      "facing": "left"
+    },
+
+    {
+      "from": "G01",
+      "to": "G20",
+      "axis": "y",
+      "start": { "x": 24, "y": 0 },
+      "facing": "right"
+    },
+    {
+      "from": "G21",
+      "to": "G44",
+      "axis": "y",
+      "start": { "x": 24, "y": 22 },
+      "facing": "right"
+    },
+    {
+      "from": "G88",
+      "to": "G69",
+      "axis": "y",
+      "start": { "x": 25, "y": 0 },
+      "facing": "left"
+    },
+    {
+      "from": "G68",
+      "to": "G45",
+      "axis": "y",
+      "start": { "x": 25, "y": 22 },
+      "facing": "left"
+    },
+
+    {
+      "from": "H01",
+      "to": "H20",
+      "axis": "y",
+      "start": { "x": 28, "y": 0 },
+      "facing": "right"
+    },
+    {
+      "from": "H21",
+      "to": "H44",
+      "axis": "y",
+      "start": { "x": 28, "y": 22 },
+      "facing": "right"
+    },
+    {
+      "from": "H88",
+      "to": "H69",
+      "axis": "y",
+      "start": { "x": 29, "y": 0 },
+      "facing": "left"
+    },
+    {
+      "from": "H68",
+      "to": "H45",
+      "axis": "y",
+      "start": { "x": 29, "y": 22 },
+      "facing": "left"
+    },
+
+    {
+      "from": "I01",
+      "to": "I20",
+      "axis": "y",
+      "start": { "x": 32, "y": 0 },
+      "facing": "right"
+    },
+    {
+      "from": "I21",
+      "to": "I44",
+      "axis": "y",
+      "start": { "x": 32, "y": 22 },
+      "facing": "right"
+    },
+    {
+      "from": "I88",
+      "to": "I69",
+      "axis": "y",
+      "start": { "x": 33, "y": 0 },
+      "facing": "left"
+    },
+    {
+      "from": "I68",
+      "to": "I45",
+      "axis": "y",
+      "start": { "x": 33, "y": 22 },
+      "facing": "left"
+    },
+
+    {
+      "from": "J01",
+      "to": "J20",
+      "axis": "y",
+      "start": { "x": 36, "y": 0 },
+      "facing": "right"
+    },
+    {
+      "from": "J21",
+      "to": "J44",
+      "axis": "y",
+      "start": { "x": 36, "y": 22 },
+      "facing": "right"
+    },
+    {
+      "from": "J88",
+      "to": "J69",
+      "axis": "y",
+      "start": { "x": 37, "y": 0 },
+      "facing": "left"
+    },
+    {
+      "from": "J68",
+      "to": "J45",
+      "axis": "y",
+      "start": { "x": 37, "y": 22 },
+      "facing": "left"
+    },
+
+    {
+      "from": "K01",
+      "to": "K20",
+      "axis": "y",
+      "start": { "x": 40, "y": 0 },
+      "facing": "right"
+    },
+    {
+      "from": "K21",
+      "to": "K44",
+      "axis": "y",
+      "start": { "x": 40, "y": 22 },
+      "facing": "right"
+    },
+    {
+      "from": "K88",
+      "to": "K69",
+      "axis": "y",
+      "start": { "x": 41, "y": 0 },
+      "facing": "left"
+    },
+    {
+      "from": "K68",
+      "to": "K45",
+      "axis": "y",
+      "start": { "x": 41, "y": 22 },
+      "facing": "left"
+    },
+
+    {
+      "from": "L01",
+      "to": "L20",
+      "axis": "y",
+      "start": { "x": 44, "y": 0 },
+      "facing": "right"
+    },
+    {
+      "from": "L21",
+      "to": "L44",
+      "axis": "y",
+      "start": { "x": 44, "y": 22 },
+      "facing": "right"
+    },
+    {
+      "from": "L88",
+      "to": "L69",
+      "axis": "y",
+      "start": { "x": 45, "y": 0 },
+      "facing": "left"
+    },
+    {
+      "from": "L68",
+      "to": "L45",
+      "axis": "y",
+      "start": { "x": 45, "y": 22 },
+      "facing": "left"
+    },
+
+    {
+      "from": "M01",
+      "to": "M20",
+      "axis": "y",
+      "start": { "x": 48, "y": 0 },
+      "facing": "right"
+    },
+    {
+      "from": "M21",
+      "to": "M44",
+      "axis": "y",
+      "start": { "x": 48, "y": 22 },
+      "facing": "right"
+    },
+    {
+      "from": "M88",
+      "to": "M69",
+      "axis": "y",
+      "start": { "x": 49, "y": 0 },
+      "facing": "left"
+    },
+    {
+      "from": "M68",
+      "to": "M45",
+      "axis": "y",
+      "start": { "x": 49, "y": 22 },
+      "facing": "left"
+    },
+
+    {
+      "from": "N01",
+      "to": "N20",
+      "axis": "y",
+      "start": { "x": 52, "y": 0 },
+      "facing": "right"
+    },
+    {
+      "from": "N21",
+      "to": "N44",
+      "axis": "y",
+      "start": { "x": 52, "y": 22 },
+      "facing": "right"
+    },
+    {
+      "from": "N88",
+      "to": "N69",
+      "axis": "y",
+      "start": { "x": 53, "y": 0 },
+      "facing": "left"
+    },
+    {
+      "from": "N68",
+      "to": "N45",
+      "axis": "y",
+      "start": { "x": 53, "y": 22 },
+      "facing": "left"
+    },
+
+    {
+      "from": "O01",
+      "to": "O20",
+      "axis": "y",
+      "start": { "x": 56, "y": 0 },
+      "facing": "right"
+    },
+    {
+      "from": "O21",
+      "to": "O44",
+      "axis": "y",
+      "start": { "x": 56, "y": 22 },
+      "facing": "right"
+    },
+    {
+      "from": "O88",
+      "to": "O69",
+      "axis": "y",
+      "start": { "x": 57, "y": 0 },
+      "facing": "left"
+    },
+    {
+      "from": "O68",
+      "to": "O45",
+      "axis": "y",
+      "start": { "x": 57, "y": 22 },
+      "facing": "left"
+    }
+  ],
+  "booths": [
+    {
+      "boothId": "粉肝本部",
+      "position": { "x": 48, "y": -3 },
+      "facing": "up",
+      "size": { "w": 2, "h": 1 }
+    },
+    {
+      "boothId": "一般入口1",
+      "position": { "x": 53, "y": -3 },
+      "facing": "up",
+      "size": { "w": 2, "h": 1 }
+    },
+    {
+      "boothId": "一般入口2",
+      "position": { "x": -3, "y": -3 },
+      "facing": "up",
+      "size": { "w": 2, "h": 1 }
+    }
+  ],
+  "overrides": {}
+}
