@@ -11,12 +11,7 @@ export interface ExchangeGift {
   enabled: boolean;
 }
 
-export type TagId =
-  | "tagA"
-  | "tagB"
-  | "tagC"
-  | "tagD"
-  | "tagE";
+export type TagId = "tagA" | "tagB" | "tagC" | "tagD" | "tagE";
 
 export type TagIconName =
   | "tag-must-buy"
@@ -47,23 +42,19 @@ export interface TagDefinition {
   chipColor: TagChipColorToken;
 }
 
-export type CardHighlight =
-  | "default"
-  | "red"
-  | "amber"
-  | "emerald"
-  | "sky"
-  | "violet";
+export type ListItemStyle = "default" | "red" | "amber" | "sky" | "violet";
 
-export interface BoothCard {
+export type BoothId = string;
+
+export interface ListItem {
   id: number;
-  boothId: string;
+  boothId: BoothId;
   enabled: boolean;
   authorNames: string[];
   purchaseItems: PurchaseItem[];
   exchangeGifts: ExchangeGift[];
   tags: TagId[];
-  highlight: CardHighlight;
+  style: ListItemStyle;
   priority: number;
   note: string;
 }

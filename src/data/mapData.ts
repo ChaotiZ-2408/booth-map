@@ -1,170 +1,98 @@
 import type {
-  BoothOverrides,
   BoothRange,
-  BoothStyleKey,
-  BoothVisualStyle,
+  BoothOverrides,
   MapBooth,
   MapData,
   MapLayoutConfig,
   RangeMapBooths,
 } from "@/types/map";
 
-// ---------------------------------------------------------------------------
-// 預設樣式定義
-// ---------------------------------------------------------------------------
-
-const defaultBoothStyles: Record<BoothStyleKey, BoothVisualStyle> = {
-  disable: {
-    borderWidth: 2,
-    fillColor: "#f8fafc",
-    borderColor: "#d3dce8",
-    fontSize: 12,
-    textColor: "#94a3b8",
-  },
-  default: {
-    borderWidth: 2,
-    fillColor: "#eff6ff",
-    borderColor: "#3b82f6",
-    fontSize: 12,
-    textColor: "#3b82f6",
-  },
-  red: {
-    borderWidth: 2,
-    fillColor: "#fff1f2",
-    borderColor: "#f43f5e",
-    fontSize: 12,
-    textColor: "#f43f5e",
-  },
-  amber: {
-    borderWidth: 2,
-    fillColor: "#fffbeb",
-    borderColor: "#f59e0b",
-    fontSize: 12,
-    textColor: "#f59e0b",
-  },
-  emerald: {
-    borderWidth: 2,
-    fillColor: "#ecfdf5",
-    borderColor: "#10b981",
-    fontSize: 12,
-    textColor: "#10b981",
-  },
-  sky: {
-    borderWidth: 2,
-    fillColor: "#f0f9ff",
-    borderColor: "#0ea5e9",
-    fontSize: 12,
-    textColor: "#0ea5e9",
-  },
-  violet: {
-    borderWidth: 2,
-    fillColor: "#f5f3ff",
-    borderColor: "#8b5cf6",
-    fontSize: 12,
-    textColor: "#8b5cf6",
-  },
-};
-
 export const defaultMapData: MapData = {
   layout: {
-    unitPx: { w: 40, h: 30 },
-    mapSize: { minX: -3, maxX: 60, minY: -10, maxY: 50 },
+    unitPx: { w: 40, h: 40 },
+    mapPadding: { left: 2, right: 2, bottom: 6, top: 2 },
     defaultBoothSize: { w: 1, h: 1 },
-    highlightColor: "#3b82f6",
-    zoom: { min: 0.6, max: 2.4, wheelStep: 0.1 },
-    boothStyle: defaultBoothStyles,
+    zoom: { min: 0.1, max: 2, wheelStep: 0.1 },
   },
   booths: [],
 };
-
-// ---------------------------------------------------------------------------
-// 工具函式
-// ---------------------------------------------------------------------------
 
 function clampToNumber(value: unknown, fallback: number): number {
   const num = Number(value);
   return Number.isFinite(num) ? num : fallback;
 }
 
-const STYLE_KEYS: BoothStyleKey[] = [
-  "disable",
-  "default",
-  "red",
-  "amber",
-  "emerald",
-  "sky",
-  "violet",
-];
-
-function normalizeStyle(
-  style: unknown,
-  fallback: BoothVisualStyle,
-): BoothVisualStyle {
-  const value = style as Partial<BoothVisualStyle> | undefined;
-  return {
-    borderWidth: clampToNumber(value?.borderWidth, fallback.borderWidth),
-    fillColor:
-      typeof value?.fillColor === "string" && value.fillColor.trim()
-        ? value.fillColor
-        : fallback.fillColor,
-    borderColor:
-      typeof value?.borderColor === "string" && value.borderColor.trim()
-        ? value.borderColor
-        : fallback.borderColor,
-    fontSize: clampToNumber(value?.fontSize, fallback.fontSize),
-    textColor:
-      typeof value?.textColor === "string" && value.textColor.trim()
-        ? value.textColor
-        : fallback.textColor,
-  };
-}
-
-// ---------------------------------------------------------------------------
-// Layout
-// ---------------------------------------------------------------------------
+// function normalizeStyle(
+//   style: unknown,
+//   fallback: MapLayoutConfig["boothStyle"]["normal"],
+// ): MapLayoutConfig["boothStyle"]["normal"] {
+//   const value = style as
+//     | Partial<MapLayoutConfig["boothStyle"]["normal"]>
+//     | undefined;
+//   return {
+//     borderWidth: clampToNumber(value?.borderWidth, fallback.borderWidth),
+//     fillColor:
+//       typeof value?.fillColor === "string" && value.fillColor.trim()
+//         ? value.fillColor
+//         : fallback.fillColor,
+//     borderColor:
+//       typeof value?.borderColor === "string" && value.borderColor.trim()
+//         ? value.borderColor
+//         : fallback.borderColor,
+//     fontSize: clampToNumber(value?.fontSize, fallback.fontSize),
+//     textColor:
+//       typeof value?.textColor === "string" && value.textColor.trim()
+//         ? value.textColor
+//         : fallback.textColor,
+//   };
+// }
 
 export function normalizeMapLayout(input: unknown): MapLayoutConfig {
   const layout = input as Partial<MapLayoutConfig> | undefined;
-
-  const boothStyle = {} as Record<BoothStyleKey, BoothVisualStyle>;
-  for (const key of STYLE_KEYS) {
-    boothStyle[key] = normalizeStyle(
-      (layout?.boothStyle as Record<string, unknown> | undefined)?.[key],
-      defaultBoothStyles[key],
-    );
-  }
 
   return {
     unitPx: {
       w: clampToNumber(layout?.unitPx?.w, defaultMapData.layout.unitPx.w),
       h: clampToNumber(layout?.unitPx?.h, defaultMapData.layout.unitPx.h),
     },
-    mapSize: {
-      minX: clampToNumber(layout?.mapSize?.minX, defaultMapData.layout.mapSize.minX),
-      maxX: clampToNumber(layout?.mapSize?.maxX, defaultMapData.layout.mapSize.maxX),
-      minY: clampToNumber(layout?.mapSize?.minY, defaultMapData.layout.mapSize.minY),
-      maxY: clampToNumber(layout?.mapSize?.maxY, defaultMapData.layout.mapSize.maxY),
+    mapPadding: {
+      left: clampToNumber(
+        layout?.mapPadding?.left,
+        defaultMapData.layout.mapPadding.left,
+      ),
+      right: clampToNumber(
+        layout?.mapPadding?.right,
+        defaultMapData.layout.mapPadding.right,
+      ),
+      bottom: clampToNumber(
+        layout?.mapPadding?.bottom,
+        defaultMapData.layout.mapPadding.bottom,
+      ),
+      top: clampToNumber(
+        layout?.mapPadding?.top,
+        defaultMapData.layout.mapPadding.top,
+      ),
     },
     defaultBoothSize: {
-      w: clampToNumber(layout?.defaultBoothSize?.w, defaultMapData.layout.defaultBoothSize.w),
-      h: clampToNumber(layout?.defaultBoothSize?.h, defaultMapData.layout.defaultBoothSize.h),
+      w: clampToNumber(
+        layout?.defaultBoothSize?.w,
+        defaultMapData.layout.defaultBoothSize.w,
+      ),
+      h: clampToNumber(
+        layout?.defaultBoothSize?.h,
+        defaultMapData.layout.defaultBoothSize.h,
+      ),
     },
-    highlightColor:
-      typeof layout?.highlightColor === "string" && layout.highlightColor.trim()
-        ? layout.highlightColor
-        : defaultMapData.layout.highlightColor,
     zoom: {
       min: clampToNumber(layout?.zoom?.min, defaultMapData.layout.zoom.min),
       max: clampToNumber(layout?.zoom?.max, defaultMapData.layout.zoom.max),
-      wheelStep: clampToNumber(layout?.zoom?.wheelStep, defaultMapData.layout.zoom.wheelStep),
+      wheelStep: clampToNumber(
+        layout?.zoom?.wheelStep,
+        defaultMapData.layout.zoom.wheelStep,
+      ),
     },
-    boothStyle,
   };
 }
-
-// ---------------------------------------------------------------------------
-// Booths
-// ---------------------------------------------------------------------------
 
 function normalizeBooth(booth: Partial<MapBooth>, index: number): MapBooth {
   const normalized: MapBooth = {
@@ -208,14 +136,28 @@ export function normalizeMapBooths(input: unknown): MapBooth[] {
   );
 }
 
-// ---------------------------------------------------------------------------
-// Range format helpers
-// ---------------------------------------------------------------------------
+// --- Range format helpers ---
 
-function parseBoothId(id: string): { prefix: string; num: number } {
-  const match = id.match(/^([A-Za-z]+)(\d+)$/);
-  if (!match) throw new Error(`Invalid boothId format: ${id}`);
-  return { prefix: match[1], num: parseInt(match[2]) };
+type NumberedBoothId = { prefix: string; num: number; numWidth: number };
+
+function parseNumberedBoothId(id: string): NumberedBoothId | null {
+  const match = id.trim().match(/^(.+?)(\d+)$/);
+  if (!match) return null;
+  return { prefix: match[1], num: Number(match[2]), numWidth: match[2].length };
+}
+
+function parseBoothId(id: string): NumberedBoothId {
+  const parsed = parseNumberedBoothId(id);
+  if (!parsed) throw new Error(`Invalid boothId format: ${id}`);
+  return parsed;
+}
+
+function parseNumericBoothId(
+  id: string,
+): { prefix: string; num: number } | null {
+  const parsed = parseNumberedBoothId(id);
+  if (!parsed) return null;
+  return { prefix: parsed.prefix, num: parsed.num };
 }
 
 export function expandRanges(input: RangeMapBooths): MapBooth[] {
@@ -223,20 +165,23 @@ export function expandRanges(input: RangeMapBooths): MapBooth[] {
   let idCounter = 1;
 
   for (const range of input.ranges) {
-    const { prefix: fromPrefix, num: fromNum } = parseBoothId(range.from);
-    const { prefix: toPrefix, num: toNum } = parseBoothId(range.to);
+    const from = parseBoothId(range.from);
+    const to = parseBoothId(range.to);
 
-    if (fromPrefix !== toPrefix) {
+    if (from.prefix !== to.prefix) {
       throw new Error(`Range prefix mismatch: ${range.from} vs ${range.to}`);
     }
 
-    const step = toNum >= fromNum ? 1 : -1;
-    const count = Math.abs(toNum - fromNum) + 1;
+    const step = to.num >= from.num ? 1 : -1;
+    const count = Math.abs(to.num - from.num) + 1;
+    const numWidth = Math.max(from.numWidth, to.numWidth);
 
     for (let i = 0; i < count; i++) {
-      const num = fromNum + step * i;
-      const boothId = `${fromPrefix}${String(num).padStart(2, "0")}`;
+      const num = from.num + step * i;
+      const boothId = `${from.prefix}${String(num).padStart(numWidth, "0")}`;
       const override = input.overrides?.[boothId] ?? {};
+
+      // axis controls the direction from the start coordinate.
       const position =
         range.axis === "y"
           ? { x: range.start.x, y: range.start.y + i }
@@ -255,6 +200,9 @@ export function expandRanges(input: RangeMapBooths): MapBooth[] {
   return booths;
 }
 
+/**
+ * Supports range format, flat booths format, or both merged together.
+ */
 export function parseMapBooths(input: unknown): MapBooth[] {
   const parsed = input as Record<string, unknown>;
   const flatBooths = Array.isArray(parsed?.booths)
@@ -271,18 +219,16 @@ export function parseMapBooths(input: unknown): MapBooth[] {
   throw new Error("缺少 ranges 或 booths 欄位");
 }
 
-function parseNumericBoothId(id: string): { prefix: string; num: number } | null {
-  const match = id.trim().match(/^([A-Za-z]+)(\d+)$/);
-  if (!match) return null;
-  return { prefix: match[1], num: Number(match[2]) };
-}
-
 function isDefaultOverride(booth: MapBooth): boolean {
   return !booth.size && !booth.labelOffset && !booth.disabled;
 }
 
-export function serializeMapBooths(booths: MapBooth[]): {
+export function serializeMapBooths(
+  booths: MapBooth[],
+  eventName = "",
+): {
   version: number;
+  eventName: string;
   ranges: BoothRange[];
   overrides: BoothOverrides;
   booths?: Array<Omit<MapBooth, "id">>;
@@ -299,6 +245,7 @@ export function serializeMapBooths(booths: MapBooth[]): {
       continue;
     }
 
+    // Export numeric booths as single-booth ranges.
     ranges.push({
       from: booth.boothId,
       to: booth.boothId,
@@ -318,16 +265,13 @@ export function serializeMapBooths(booths: MapBooth[]): {
 
   const payload: ReturnType<typeof serializeMapBooths> = {
     version: 2,
+    eventName,
     ranges,
     overrides,
   };
   if (flatBooths.length) payload.booths = flatBooths;
   return payload;
 }
-
-// ---------------------------------------------------------------------------
-// MapData
-// ---------------------------------------------------------------------------
 
 export function normalizeMapData(input: unknown): MapData {
   const parsed = input as Partial<MapData> | undefined;
@@ -337,31 +281,24 @@ export function normalizeMapData(input: unknown): MapData {
   };
 }
 
-// ---------------------------------------------------------------------------
-// Validation
-// ---------------------------------------------------------------------------
-
 export function validateMapLayout(layout: MapLayoutConfig): string | null {
-  if (layout.mapSize.minX > layout.mapSize.maxX)
-    return "mapSize minX cannot be greater than maxX";
-  if (layout.mapSize.minY > layout.mapSize.maxY)
-    return "mapSize minY cannot be greater than maxY";
-  if (layout.unitPx.w <= 0 || layout.unitPx.h <= 0)
-    return "unitPx must be > 0";
+  if (layout.unitPx.w <= 0 || layout.unitPx.h <= 0) return "unitPx must be > 0";
+
+  const paddingValues = Object.values(layout.mapPadding);
+  if (paddingValues.some((value) => !Number.isFinite(value) || value < 0))
+    return "mapPadding must be >= 0";
+
   if (layout.defaultBoothSize.w <= 0 || layout.defaultBoothSize.h <= 0)
     return "defaultBoothSize must be > 0";
+
   if (layout.zoom.min <= 0 || layout.zoom.max <= 0)
     return "zoom min/max must be > 0";
+
   if (layout.zoom.min > layout.zoom.max)
     return "zoom min cannot be greater than max";
-  if (layout.zoom.wheelStep <= 0)
-    return "zoom wheelStep must be > 0";
 
-  for (const key of STYLE_KEYS) {
-    const style = layout.boothStyle[key];
-    if (style.borderWidth < 0) return `boothStyle[${key}] borderWidth must be >= 0`;
-    if (style.fontSize <= 0) return `boothStyle[${key}] fontSize must be > 0`;
-  }
+  if (layout.zoom.wheelStep <= 0) return "zoom wheelStep must be > 0";
+
   return null;
 }
 
@@ -371,31 +308,15 @@ export function validateMapBooths(booths: MapBooth[]): string | null {
 
   for (const booth of booths) {
     if (!booth.boothId.trim()) return "boothId is required";
-    if (boothIds.has(booth.boothId)) return `duplicate boothId: ${booth.boothId}`;
+    if (boothIds.has(booth.boothId))
+      return `duplicate boothId: ${booth.boothId}`;
     boothIds.add(booth.boothId);
-    if (!validFacing.has(booth.facing)) return `invalid facing: ${booth.boothId}`;
+    if (!validFacing.has(booth.facing))
+      return `invalid facing: ${booth.boothId}`;
   }
   return null;
 }
 
 export function validateMapData(data: MapData): string | null {
   return validateMapLayout(data.layout) ?? validateMapBooths(data.booths);
-}
-
-// ---------------------------------------------------------------------------
-// Selected style 反色工具（供 View 使用）
-// ---------------------------------------------------------------------------
-
-/**
- * 將某個樣式的 fillColor / borderColor 互換，模擬「選中」外觀。
- * borderWidth 加粗一點以強調選中狀態。
- */
-export function toSelectedStyle(style: BoothVisualStyle): BoothVisualStyle {
-  return {
-    ...style,
-    borderWidth: style.borderWidth + 1,
-    fillColor: style.borderColor,   // 原邊框色 → 填滿
-    borderColor: style.fillColor,   // 原填滿色 → 外框
-    textColor: style.fillColor,     // 文字跟著外框走，讓對比度足夠
-  };
 }

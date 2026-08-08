@@ -6,7 +6,6 @@ import path from "node:path";
 
 export default defineConfig({
   plugins: [vue(), tailwindcss()],
-  base: "/booth-map/",
   server: {
     host: "0.0.0.0",
     port: 5173,

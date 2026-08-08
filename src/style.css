@@ -1,7 +1,66 @@
 ﻿@import "tailwindcss";
-@import "./styles/tcomponents.css";
-@import "./styles/editor.css";
-@import "./styles/map.css";
+
+@theme {
+  --color-editor-bg: #f9f9f7;
+  --color-editor-surface: #ffffff;
+  --color-editor-muted-surface: #f4f4f2;
+  --color-editor-border: #e2e3e1;
+  --color-editor-text: #434843;
+  --color-editor-muted: #999e96;
+  --color-editor-primary: #516052;
+  --color-editor-primary-soft: #d7e7d5;
+  --color-editor-accent: #bbcbba;
+  --color-editor-danger: #ba1a1a;
+
+  --radius-editor-card: 4px;
+  --shadow-editor-card: 0 1px 4px rgba(0, 0, 0, 0.03);
+  --shadow-editor-fab: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  /* primary */
+  --color-primary: #6e36be;
+  --color-primary-light: #e7dbf7;
+
+  /* secondary */
+  --color-secondary: #115e59;
+  --color-secondary-light: #dff3f1;
+  --color-secondary-light2: #61c1ba;
+  --color-secondary-light3: #c0e6e3;
+
+  /* black（透明度階層） */
+  --color-black: rgba(0, 0, 0, 1);
+  --color-black-100: rgba(31, 41, 55, 1);
+  --color-black-80: rgba(31, 41, 55, 0.8);
+  --color-black-60: rgba(31, 41, 55, 0.6);
+  --color-black-40: rgba(31, 41, 55, 0.4);
+  --color-black-25: rgba(31, 41, 55, 0.25);
+  --color-black-20: rgba(31, 41, 55, 0.2);
+  --color-black-10: rgba(31, 41, 55, 0.1);
+  --color-black-5: rgba(31, 41, 55, 0.05);
+  --color-black-4: rgba(31, 41, 55, 0.04);
+
+  /* white（透明度階層） */
+  --color-white: rgba(255, 255, 255, 1);
+  --color-white-100: rgba(255, 255, 255, 1);
+  --color-white-80: rgba(255, 255, 255, 0.8);
+  --color-white-60: rgba(255, 255, 255, 0.6);
+  --color-white-40: rgba(255, 255, 255, 0.4);
+  --color-white-20: rgba(255, 255, 255, 0.2);
+  --color-white-10: rgba(255, 255, 255, 0.1);
+  --color-white-5: rgba(255, 255, 255, 0.05);
+  --color-white-4: rgba(255, 255, 255, 0.04);
+
+  /* surface */
+  --color-surface-0: #f8fafc;
+  --color-surface-1: #f7f8fa;
+  --color-surface-2: #eef1f4;
+  --color-surface-3: #eaeaea;
+  --color-surface-4: #f3f4f6;
+
+
+  /* layout */
+  --spacing-app-header: 3rem;
+  --spacing-app-footer: 3rem;
+}
 
 /* =========================
    Base
@@ -22,6 +81,38 @@ body {
 }
 
 /* =========================
+   Layout shell
+   (temporary home — move into the layout component's
+   own <style scoped> once that file is uploaded)
+========================= */
+
+@layer components {
+  .app-shell {
+    @apply flex h-screen flex-col bg-slate-100;
+  }
+
+  .top-nav {
+    @apply sticky top-0 z-20 border-b border-white/50 bg-white/70 px-2 py-2 backdrop-blur;
+  }
+
+  .top-nav-inner {
+    @apply mx-auto flex max-w-xl items-center gap-2;
+  }
+
+  .top-nav-link {
+    @apply rounded-full border border-white/60 bg-white/40 px-3 py-1.5 text-sm font-medium text-slate-600 transition;
+  }
+
+  .top-nav-link-active {
+    @apply border-slate-300 bg-slate-700 text-white;
+  }
+
+  .app-main {
+    @apply min-h-0 flex-1;
+  }
+}
+
+/* =========================
    Utility
 ========================= */
 
@@ -33,5 +124,47 @@ body {
 
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
+  }
+}
+/* =========================
+   Temporary reusable component styles
+   Move into owning Vue components when those files are available.
+========================= */
+
+@layer components {
+  .glass-list-item {
+    @apply flex overflow-hidden rounded-2xl border border-white/50 bg-white/35 shadow-sm backdrop-blur-xl;
+  }
+
+  .glass-section {
+    @apply rounded-2xl border border-white/40 bg-white/20 px-3 py-2 backdrop-blur;
+  }
+
+  .glass-input {
+    @apply w-full rounded-xl border border-white/40 bg-white/25 px-3 py-2 text-sm outline-none;
+  }
+
+  .glass-button {
+    @apply rounded-2xl border border-white/50 bg-white/35 py-3 text-sm font-medium text-slate-700 backdrop-blur;
+  }
+
+  .danger-button {
+    @apply rounded-2xl border border-red-200/60 bg-red-100/30 py-3 text-sm font-medium text-red-500 backdrop-blur;
+  }
+
+  .icon-action-button {
+    @apply inline-flex items-center justify-center gap-1 rounded-2xl border px-3 py-3 text-sm font-medium backdrop-blur transition active:scale-95;
+  }
+
+  .section-label {
+    @apply mb-1 block text-[11px] font-medium uppercase tracking-wider text-editor-muted;
+  }
+
+  .author-badge-sm {
+    @apply rounded-full border border-white/60 bg-rose-300 px-2 py-0.5 text-[12px] font-semibold text-white backdrop-blur;
+  }
+
+  .empty-badge {
+    @apply rounded-full border border-white/60 bg-white/35 px-2 py-0.5 text-[11px] text-slate-400;
   }
 }

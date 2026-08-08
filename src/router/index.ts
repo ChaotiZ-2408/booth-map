@@ -1,9 +1,9 @@
-﻿import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import MapView from '@/views/MapView.vue'
-import BoothEditorView from '@/views/BoothEditorView.vue'
+import ListEditorView from '@/views/ListEditorView.vue'
 
 export const ROUTE_MAP = '/'
-export const ROUTE_BOOTH_EDITOR = '/boothEditor'
+export const ROUTE_LIST_EDITOR = '/listEditor'
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -14,9 +14,9 @@ const router = createRouter({
       component: MapView,
     },
     {
-      path: ROUTE_BOOTH_EDITOR,
-      name: 'boothEditor',
-      component: BoothEditorView,
+      path: ROUTE_LIST_EDITOR,
+      name: 'listEditor',
+      component: ListEditorView,
     },
   ],
 })

@@ -1,0 +1,13 @@
+{
+  "defaultEventPath": "/data/events/202608_NiCE2.json",
+  "events": [
+    {
+      "eventName": "2026 CooMIC 4",
+      "path": "/data/events/202605_CooMic4.json"
+    },
+    {
+      "eventName": "2026 NiCE 2",
+      "path": "/data/events/202608_NiCE2.json"
+    }
+  ]
+}

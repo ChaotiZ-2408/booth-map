@@ -1,6 +1,6 @@
-﻿<script setup lang="ts">
+<script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import { ROUTE_BOOTH_EDITOR, ROUTE_MAP } from '@/router'
+import { ROUTE_LIST_EDITOR, ROUTE_MAP } from '@/router'
 </script>
 
 <template>
@@ -10,7 +10,7 @@ import { ROUTE_BOOTH_EDITOR, ROUTE_MAP } from '@/router'
         <RouterLink :to="ROUTE_MAP" class="top-nav-link" active-class="top-nav-link-active" exact-active-class="top-nav-link-active">
           場次地圖
         </RouterLink>
-        <RouterLink :to="ROUTE_BOOTH_EDITOR" class="top-nav-link" active-class="top-nav-link-active">
+        <RouterLink :to="ROUTE_LIST_EDITOR" class="top-nav-link" active-class="top-nav-link-active">
           逛攤清單
         </RouterLink>
       </nav>

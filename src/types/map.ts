@@ -10,15 +10,26 @@ export interface UnitPoint {
   y: number;
 }
 
-/** 對應 CardHighlight + disable 狀態的攤位樣式鍵 */
-export type BoothStyleKey =
-  | "disable"   // 沒有對應卡片
-  | "default"   // 有卡片，highlight === "default"
-  | "red"
-  | "amber"
-  | "emerald"
-  | "sky"
-  | "violet";
+export interface MapLayoutConfig {
+  unitPx: UnitSize;
+  mapPadding: {
+    left: number;
+    right: number;
+    bottom: number;
+    top: number;
+  };
+  defaultBoothSize: UnitSize;
+  zoom: {
+    min: number;
+    max: number;
+    wheelStep: number;
+  };
+  boothStyle: {
+    normal: BoothVisualStyle;
+    clickable: BoothVisualStyle;
+    selected: BoothVisualStyle;
+  };
+}
 
 export interface BoothVisualStyle {
   borderWidth: number;
@@ -26,28 +37,6 @@ export interface BoothVisualStyle {
   borderColor: string;
   fontSize: number;
   textColor: string;
-}
-
-/**
- * selected 不再是獨立的樣式設定，
- * 而是執行時將對應樣式的 fillColor / borderColor 互換產生。
- */
-export interface MapLayoutConfig {
-  unitPx: UnitSize;
-  mapSize: {
-    minX: number;
-    maxX: number;
-    minY: number;
-    maxY: number;
-  };
-  defaultBoothSize: UnitSize;
-  highlightColor: string;
-  zoom: {
-    min: number;
-    max: number;
-    wheelStep: number;
-  };
-  boothStyle: Record<BoothStyleKey, BoothVisualStyle>;
 }
 
 export interface MapBooth {
@@ -70,8 +59,8 @@ export interface MapData {
 export interface BoothRange {
   from: string;
   to: string;
-  axis: "x" | "y";
-  start: { x: number; y: number };
+  axis: "x" | "y"; // 延伸方向
+  start: { x: number; y: number }; // 起點座標
   facing?: BoothFacing;
 }
 
@@ -82,6 +71,7 @@ export type BoothOverrides = Record<
 
 export interface RangeMapBooths {
   version: number;
+  eventName?: string;
   ranges: BoothRange[];
   overrides?: BoothOverrides;
 }
